@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Auth;
 class SessionsController extends Controller
 {
     public function __construct()
@@ -43,9 +43,9 @@ class SessionsController extends Controller
         return;
     }
     public function destroy()
-{
+    {
     Auth::logout();
     session()->flash('success', '您已成功退出！');
     return redirect('login');
-}
+    }
 }
